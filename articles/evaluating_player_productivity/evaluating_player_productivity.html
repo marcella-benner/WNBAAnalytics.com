@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Evaluating Player Productivity in the WNBA - WNBAAnalytics.com</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<style>
+			/* Resize images to be about 50% smaller */
+			.image.main img,
+			.image.fit img {
+				width: 50% !important;
+				height: auto;
+				margin: 0 auto;
+				display: block;
+			}
+			/* Center the images */
+			.image.main,
+			.image.fit {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../../index.html" class="logo"><strong>WNBAAnalytics.com</strong></a>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Evaluating Player Productivity in the WNBA</h1>
+										<p><em>An in-depth analysis of Win Contribution (WC) metrics and how they measure player impact on team success</em></p>
+									</header>
+
+									<hr class="major" />
+
+									<p>In the 2024 WNBA season, there were a total of 240 wins distributed across 12 teams. I sought to divide the 240 wins among every WNBA player to understand the contribution each player had on their team's record. I created a variable called 'Win Contribution' (WC) which is based on the metric created in <em>Wages of Wins</em> by David Berri, Martin Schmidt, and Stacey Brook. This metric allows us to allocate a team's wins to each of its players, consequently allowing us to assess and compare each player's productivity within and across teams. I'll explain the methodology below, test its accuracy, and provide the WC data for each player in each season in WNBA history.</p>
+
+									<h2>Methodology</h2>
+
+									<p>Winning a basketball game requires a team to score more points than they concede. Since points scored equals <strong>possessions acquired</strong> times <strong>offensive efficiency</strong> while points conceded equals <strong>possessions conceded</strong> times <strong>defensive efficiency</strong>, then by measuring how different statistics affect these four factors, we can understand how a player contributes to team wins.</p>
+
+									<ul>
+										<li><strong>Point scored –</strong> How much is a point scored in terms of wins? To understand this, I regressed season wins (normalized to a 40 game season) to team points scored in three different WNBA eras: 1997-2006, 2007-2015, 2016-2024. Since the earlier eras showed less scoring and less possessions, I thought it was necessary to calculate different weights for each metric in these three different eras, although they did not drastically differ as you'll see in <strong>TABLE 1</strong>. I found that each additional point scored over a season creates <strong>.032 WCs</strong> for 2016-2024. (For simplicity, I will only highlight the coefficients for the 2016-2024 era in the text).</li>
+										<li><strong>Possession acquired –</strong> From 2016-2024, the average points per possession equaled 0.99. Thus, if each point scored contributes .032 extra WCs, and you get 0.99 points per possession, then each possession acquired creates .99 * .032 = <strong>.031 WCs.</strong></li>
+										<li><strong>Point conceded –</strong> How much does a point allowed count toward wins? When regressing points conceded to wins, we see that each additional point allowed is worth <strong>-.031 WCs.</strong></li>
+										<li><strong>Possession conceded –</strong> Again, since the average points per possession equals 0.99, and each point allowed contributes -.031 wins, then each possession conceded equals .99 * -.031 = <strong>-.031 WCs.</strong></li>
+									</ul>
+
+									<h3>Evaluating the win value of each statistic:</h3>
+
+									<p><strong>Three-point field goals:</strong> Our regression shows that for the 2016-2024 seasons each point contributes .032 WCs, so making a 3-point field goal should contribute .096 WCs. However, to make a 3-point field goal you must employ a possession which costs -.031 WCs, so the win contribution of a three-point field goal is (3 * .032) - .031 = <strong>.064 WCs.</strong></p>
+
+									<p><strong>Two-point field goals:</strong> Like above, except multiplying points scored by 2 instead of 3 but still factoring the cost of using a field goal attempt. So, the WCs created from a 2-point field goal is (2* .032) - .031 = <strong>.032 WCs.</strong></p>
+
+									<p><strong>Missed field goal:</strong> Missing a field goal employs a possession without the return of the points scored. Thus, the win contribution of a player missing a field goal is <strong>-.031 WCs.</strong></p>
+
+									<p><strong>Free-throw made:</strong> Since multiple free-throw attempts can be taken on a given possession, basketball statistician John Hollinger estimated that each free-throw accounts for only .44 possessions. Therefore, the value of a free-throw made is (1*.032) – (.44 * -.031) = <strong>.018 WCs.</strong></p>
+
+									<p><strong>Free-throw missed:</strong> Again, since a free-throw is estimated to be only .44 of a possession, then missing a free-throw costs (.44 * -.031) = -<strong>.014 WCs.</strong></p>
+
+									<p><strong>Assists:</strong> <em>Wages of Wins</em> used an intricate regression analysis to conclude that an assist is adds about 2/3 wins of a point scored. John Hollinger proposed that for a successful assisted basket, a player must get open, receive a good pass, and make the basket. A passer is responsible for 1 of those three actions so on a two-point shot, an assist is worth 0.67 of a point. Therefore, we will also value an assist at 2/3 of a two-point basket so .67 * 0.32 = <strong>.021 WCs.</strong></p>
+
+									<p><strong>Offensive rebounds, defensive rebounds, and steals:</strong> All these statistics result in the acquisition of a possession, which is worth <strong>.031 WCs.</strong></p>
+
+									<p><strong>Turnovers:</strong> Because a team loses a possession on a turnover, the win contribution value is equal to that of a possession employed for <strong>-.031 WCs.</strong></p>
+
+									<p><strong>Blocked shots:</strong> I regressed an opponent's made two-point field goals versus blocked shots. In 2016-2024, each block decreases an opponent's made two-point field goals by .70, so if each two-point field goal contributes .032, then each block contributes .70 * .032 = <strong>.021 WCs.</strong></p>
+
+									<p><strong>Fouls:</strong> Regressing opponent made free-throws on team fouls, I see that each foul committed in the WNBA from 2016-2024 awards 1.33 free-throw attempts for the opponent. Since FT% in this era is 80%, I multiplied 1.33 *.80 to get 1.06 free-throws made by the opponent per personal foul. Thus, we can take 1.06 and multiply it by how many WCs an opponent free-throw made is (which is -.017 WCs) to get 1.06 * -.017 = <strong>-.018 WCs.</strong></p>
+
+									<p><strong>Defensive wins:</strong> Lastly, I wanted to contribute wins to each player based on their defensive contribution. To do this, I regressed wins on defensive efficiency and it equaled 0.99. Thus, if a player were to play an entire season and have a defensive efficiency rating of 5 points less than the WNBA average, that player would be worth 5 * 0.99 / 5 = 0.99 WCs from their defense alone. We divide by 5 here because the player in theory is contributing only 1/5 to that defensive rating as they share the floor with 4 other defenders.</p>
+
+									<p>We also must multiply by fractions of total season possessions that the player played too, as having a rating 5 points less than the WNBA average is more significant the more she played. Therefore, the final formula for defensive wins contributed for a player is (average WNBA defensive rating - player defensive rating) * (possessions played / total team possessions) / 5. The caveat of this metric is that the player's defensive rating is affected by the other 4 defenders she plays with and the other 5 offensive players she plays against.</p>
+
+									<h3>Table 1: Total WCs for each statistic in the different WNBA eras</h3>
+									<span class="image fit"><img src="images/table1_ttl_wc_by_era.png" alt="WC Coefficients by Era" /></span>
+
+									<h2>Calculating wins for each player:</h2>
+
+									<p>Now that we know how each of these statistics contributes to wins in the WNBA, we can compute the wins that each player added to their teams in a few steps:</p>
+
+									<h3>1. Measure the value of a player's statistics.</h3>
+									<p>I multiplied each player's season statistics by the coefficients calculated above to find the raw win contribution.</p>
+
+									<h3>2. Adjust for position.</h3>
+									<p>When doing this calculation, forwards and centers showed greater raw scores than guards. For instance, in 2024 these were the median win contributions per 100 possessions by position:</p>
+									<ul>
+										<li>Center: 0.38 WC/100 possessions</li>
+										<li>Forward: 0.29 WC/100 possessions</li>
+										<li>Guard: 0.20 WC/100 possessions</li>
+									</ul>
+
+									<p>Yet we know that each position plays a crucial part in scoring and that a team employing five centers would likely struggle to dribble the ball up the floor, score from the perimeter, and distribute the ball. So, we multiply the median positional WC/100 by the player's total number of possessions to get their expected WC for the season. We then subtract the expected WC from their actual WC to find their relative WC for the season. For instance, Angel Reese's raw WC was 11.97 but based on being a forward and the number of possessions she played, we expected 6.33 WC, giving her a +5.64 WC above expected.</p>
+
+									<h3>3. Find total win contributions from relative win contributions.</h3>
+									<p>Since each team played 40 games, we would expect each team to win 20 games in 2024. Furthermore, if a player plays half of the team's total possessions of the season, we'd expect them to have 2 total wins simply based on their playing time. This is because the 20 expected team wins over a season are divided by the 5 players on the court giving each player 4 wins, but since the player only played half of the possessions, we'd expect 2 wins from them. Thus, we can take the player's relative WC and add it to the expected WC based on possessions played and get a final WC.</p>
+
+									<p>Doing this for Angel Reese who was +5.64 WC above expected, and based on playing 67.8% of her team possessions, we expect her to have 0.678 * 4, or 2.71 wins. Thus, her total WCs is 5.64 + 2.71 = 8.35 WCs.</p>
+
+									<p>Lastly, we observed that the sum of all player's WCs was greater than the total wins possible in a WNBA season, so we normalized the WCs to translate this metric to actual wins in a WNBA season. This normalization in 2024 resulted shrank Angel Reese's 8.35 WC to 5.07 real WNBA wins. We call this number the <strong>final WCs</strong>. Thus, we propose that Angel Reese was responsible for 5.07 wins for the Sky in the 2024 season.</p>
+
+									<h2>Accuracy</h2>
+
+									<p>To assess the accuracy of the finalized WCs, we analyzed how they compared to actual wins. To do this, we summed the finalized WC for all the players on a team and compared that to how many games a team won that season. A caveat is if a player got traded we didn't divide the WC or win shares amongst their teams. This will lead to a slight underestimate in the R2 value. We see that WC pretty accurately explains how much a team won that season with an R2 value of 0.824 for all seasons. Comparatively, Win Shares was more accurate with an R2 value of 0.852 for all team-seasons.</p>
+
+									<span class="image fit"><img src="images/win_contributions_wc.png" alt="Win Contributions WC Analysis" /></span>
+									<span class="image fit"><img src="images/win_shares.png" alt="Win Shares Analysis" /></span>
+
+									<p>However, for the 2024 season (the only season that RAPTOR data is available for), WC did significantly better than FiveThirtyEight's RAPTOR method at predicting WNBA wins, as WC had an R2 value of 0.956 while RAPTOR's was 0.861.</p>
+
+									<span class="image fit"><img src="images/wc_2024.png" alt="WC 2024 Analysis" /></span>
+									<span class="image fit"><img src="images/raptor_2024.png" alt="RAPTOR 2024 Analysis" /></span>
+
+									<p>WC/100 possessions also did better than other rate-based, all-inclusive, WNBA player metrics like Player Efficiency Rating (PER) and Player Impact Estimate (PIE). When taking averages of each metric for the players on a team, WC had an R2 value of 0.362 compared to 0.157 for PER and 0.052 for PIE.</p>
+
+									<span class="image fit"><img src="images/wc_per_100_possessions.png" alt="WC per 100 Possessions Analysis" /></span>
+									<span class="image fit"><img src="images/per.png" alt="PER Analysis" /></span>
+									<span class="image fit"><img src="images/pie.png" alt="PIE Analysis" /></span>
+
+									<h2>Results</h2>
+
+									<p>After calculating the wins each WNBA player is responsible for every WNBA season, we wanted to use our WC methodology to see which WNBA player contributed the most wins and which had the best wins per 100 possessions. Since the early WNBA players played in seasons with less than 40 games, we normalized all wins to a 40 game season to compare players of different eras. Players who played less than 1500 career minutes were removed from the analysis.</p>
+
+									<p>The tables below show the top-10 players in career wins contributed for each position and where they rank amongst their positional peers in wins/100.</p>
+
+									<p>Despite normalizing for positions, this list is still skewed in favor of bigs. If we examine guards, the highest win producing guard was Sue Bird with over 78.2 wins which narrowly edged Diana Taurasi with 77.6. Interestingly, these two players did not finish in the top-15 in wins/100 highlighting their incredible longevity.</p>
+
+									<p>The most efficient guard was easily Cynthia Cooper who contributed 0.32 wins per 100 possessions. Unfortunately, she was already 34 during the WNBA's inaugural season, or she may have been in the top-10 for career wins contributed considering her incredible win efficiency. The next closest guard in win efficiency is Sabrina Ionescu with 0.25 wins per 100.</p>
+
+									<span class="image fit"><img src="images/wc_guards.png" alt="Top Guards by Win Contribution" /></span>
+									<span class="image fit"><img src="images/wc_forwards.png" alt="Top Forwards by Win Contribution" /></span>
+
+									<p>Assuming Tamika Catchings played in an era that played 40 game seasons, she would have been responsible for over 106 wins, or over 2.5 season's worth. In terms of raw win production, Tamika Catchings is the WNBA leader followed my Sylvia Fowles and Candace Parker who both eclipsed over 100 career wins.</p>
+
+									<span class="image fit"><img src="images/wc_centers.png" alt="Top Centers by Win Contribution" /></span>
+
+									<p>If we normalize for possessions, Yolanda Griffith was the most efficient player with 0.353 wins per 100 possessions, followed by Sylvia Fowles and Tamika Catchings. Therefore, Sylvia Fowles and Tamika Catchings generated wins at an amazing volume and efficiency – Catchings is first in wins all time and third in win efficiency while Fowles is second in career wins and second in win rate. Both players have strong arguments for WNBA GOAT debates.</p>
+
+									<p>The single greatest year by a WNBA player was Nneka Ogwumike's 2016 season where we calculate that she contributed over 11.6 wins over a 40 game season. The most efficient year (minimum 250 minutes) was 2015 Candace Parker who contributed over half a win per 100 possessions at 0.50 wins/100.</p>
+
+									<p>Here is a comprehensive dataset for all seasons using data provided by wnba.com and basketball-reference.com:</p>
+									<a href="data.html" class="button large" target="_blank">View Data</a>
+									<br><br/>
+									<h2>Final thoughts</h2>
+
+									<p>Since Win Shares correlates slightly better with actual wins than WCs, I don't see WC as supplanting Win Shares, at least not in its current form. Win Contribution does appear more accurate than other advanced metrics like RAPTOR, PER, and PIE. Thus, I see WC being used in parallel with Win Shares to provide an alternative tool to evaluate player performance in the WNBA, like how the NBA uses various all-inclusive metrics to evaluate player productivity such as Win Shares, Value over Replacement Player (VORP), Box Plus/Minus, etc.</p>
+
+									<p>Furthermore, this is just the beginning of the development of this statistical tool. A huge component of winning in basketball is man-to-man defense and preventing your opponent from scoring. By having access to advanced metrics such as opponent field goal attempts and makes, we can incorporate those statistics into WCs and better measure each player's defensive impact on the floor compared to the flawed defensive rating metric we currently use. Therefore, I will continue to improve Win Contribution to make it more accurate, all-inclusive metric to capture a player's role in winning in the WNBA.</p>
+
+									<hr class="major" />
+
+									<ul class="actions">
+										<li><a href="../articles.html" class="button large">← Back to Articles</a></li>
+									</ul>
+
+								</section>
+
+						</div>
+					</div>
+
+					<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="../../index.html">Homepage</a></li>
+										<li><a href="../articles.html">Articles</a></li>
+										<li><a href="../../about.html">About</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Featured Analysis</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="images/win_contributions_wc.png" alt="2024 Win Contribution Analysis" /></a>
+											<p>Win Contribution analysis showing team performance predictions with 95.6% accuracy.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">View Full Analysis</a></li>
+									</ul>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>About WNBA Analytics</h2>
+									</header>
+									<p>Dedicated to advancing the understanding of WNBA player performance through innovative statistical analysis. Our Win Contribution methodology provides a comprehensive framework for evaluating player impact on team success.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">analytics@wnbaanalytics.com</a></li>
+										<li class="icon brands fa-twitter"><a href="#">@WNBAAnalytics</a></li>
+										<li class="icon solid fa-chart-line">Advanced Basketball Analytics</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; WNBA Analytics. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
+
+
+
