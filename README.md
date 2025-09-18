@@ -1,2 +1,0 @@
-# WNBAAnalytics.com
-wnbaanalytics.com
