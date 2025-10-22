@@ -10,7 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" type="image/jpeg" href="/images/WA_WhiteBG.jpeg">
+		<link rel="icon" type="image/jpeg" href="/images/WA-WhiteBG.jpeg">
 		<style>
 			/* Full-width layout for Latest Research section */
 			.features article {
@@ -29,37 +29,71 @@
 			section {
 				margin-bottom: 2em;
 			}
+			/* Add spacing between research articles */
+			.features article:not(:last-child) {
+				margin-bottom: 4em;
+				border-bottom: 1px solid #e0e0e0;
+				padding-bottom: 2em;
+			}
+			/* Reduce spacing between grid content and button */
+			.features article .content div[style*="margin: 2em 0"] {
+				margin-bottom: 0.5em !important;
+			}
 						/* Responsive banner image */
 			#banner .image.object {
 				width: 100%;
 				height: auto;
-				overflow: hidden;
+				overflow: visible;
+				display: flex;
+				justify-content: left;
+				align-items: left;
+				box-sizing: border-box;
+				padding: 0;
 			}
 			#banner .image.object img {
-				width: 100%;
+				width: auto;
 				height: auto;
-				object-fit: cover;
+				object-fit: contain;
 				object-position: center;
+				max-width: 100%;
+				max-height: 500px;
+				box-sizing: border-box;
+			}
+			/* Ensure no horizontal overflow and reduce spacing */
+			#banner {
+				overflow-x: hidden;
+				width: 100%;
+				box-sizing: border-box;
+				padding: 1em 0;
+			}
+			/* Reduce gap between content and image */
+			#banner .content {
+				padding-right: 1em;
 			}
 			/* Mobile-specific adjustments */
 			@media screen and (max-width: 980px) {
 				#banner .image.object {
 					width: 100%;
-					max-height: 300px;
+					max-height: 400px;
+					overflow: visible;
 				}
 				#banner .image.object img {
-					width: 100%;
+					width: auto;
 					height: auto;
-					max-height: 300px;
+					max-height: 400px;
 					object-fit: contain;
+					max-width: 100%;
 				}
 			}
 			@media screen and (max-width: 736px) {
 				#banner .image.object {
-					max-height: 250px;
+					max-height: 350px;
+					overflow: visible;
 				}
 				#banner .image.object img {
-					max-height: 250px;
+					max-height: 350px;
+					object-fit: contain;
+					max-width: 100%;
 				}
 			}
 		</style>
@@ -75,11 +109,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>WNBAAnalytics.com</strong></a>
-									<ul class="icons">
-										<li><a href="https://x.com/wnbaanalytics" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="http://instagram.com/wnbaanalytics" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									</ul>
+									<!-- Header content will be loaded by navigation.js -->
 								</header>
 
 							<!-- Banner -->
@@ -95,7 +125,7 @@
 										</ul>
 									</div>
 									<span class="image object">
-										<img src="images/WA_WhiteBG.jpeg" alt="" />
+										<img src="images/WA-WhiteBG.jpeg" alt="" />
 									</span>
 								</section>
 
@@ -107,7 +137,41 @@
 									<div class="features">
 										<article>
 											<div class="content">
-												<h3><a href="articles/evaluating_player_productivity/evaluating_player_productivity.html">Evaluating Player Productivity in the WNBA</a></h3>
+												<h3><a href="articles/how-do-wnba-players-age/how-do-wnba-players-age-part-i.html">How Do WNBA Players Age? (Part I)</a></h3>
+												<p style="color: #666; font-size: 0.9em; margin: -0.5em 0 1em 0;">October 2025</p>
+												<p>An analysis of player aging curves and productivity changes throughout WNBA careers. Understanding when and how WNBA players peak and decline is crucial for roster management and player development decisions.</p>
+												
+												<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0;">
+													<div>
+														<h4>Key Findings:</h4>
+														<ul>
+															<li>WNBA players peak from ages 23-27</li>
+															<li>Players improve by 0.5 WS from age 22 to peak at 25</li>
+															<li>Decline begins at age 25, with larger and more consistent decline starting from age 28</li>
+															<li>Steep decline of 0.8 WS from ages 28-31</li>
+														</ul>
+													</div>
+													<div>
+														<h4>Research Highlights:</h4>
+														<ul>
+															<li>Win Share (WS) data from 1997-2025</li>
+															<li>Age-adjusted productivity analysis</li>
+															<li>Per-possession efficiency metrics</li>
+															<li>Roster management implications</li>
+														</ul>
+													</div>
+												</div>
+												
+												<ul class="actions">
+													<li><a href="articles/how-do-wnba-players-age/how-do-wnba-players-age-part-i.html" class="button large">Read Full Analysis</a></li>
+												</ul>
+											</div>
+										</article>
+										
+										<article>
+											<div class="content">
+												<h3><a href="articles/evaluating-player-productivity/evaluating-player-productivity.html">Evaluating Player Productivity in the WNBA</a></h3>
+												<p style="color: #666; font-size: 0.9em; margin: -0.5em 0 1em 0;">September 2025</p>
 												<p>An in-depth analysis of Win Contribution (WC) metrics and how they measure player impact on team success. This comprehensive study reveals fascinating insights about player efficiency across different eras and positions, with detailed comparisons to other advanced metrics like RAPTOR, PER, and Win Shares.</p>
 												
 												<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0;">
@@ -132,7 +196,7 @@
 												</div>
 												
 												<ul class="actions">
-													<li><a href="articles/evaluating_player_productivity/evaluating_player_productivity.html" class="button large">Read Full Analysis</a></li>
+													<li><a href="articles/evaluating-player-productivity/evaluating-player-productivity.html" class="button large">Read Full Analysis</a></li>
 												</ul>
 											</div>
 										</article>
@@ -174,12 +238,12 @@
 									</header>
 									<div class="mini-posts">
 										<article>
-											<a href="articles/evaluating_player_productivity/evaluating_player_productivity.html" class="image"><img src="articles/evaluating_player_productivity/images/win_contributions_wc.png" alt="2024 Win Contribution Analysis" /></a>
+											<a href="articles/evaluating-player-productivity/evaluating-player-productivity.html" class="image"><img src="articles/evaluating-player-productivity/images/win-contributions-wc.png" alt="2024 Win Contribution Analysis" /></a>
 											<p>Evaluating Player Productivity in the WNBA</p>
 										</article>
 									</div>
 									<ul class="actions">
-										<li><a href="articles/evaluating_player_productivity/evaluating_player_productivity.html" class="button">More</a></li>
+										<li><a href="articles/evaluating-player-productivity/evaluating-player-productivity.html" class="button">More</a></li>
 									</ul>
 								</section>
 
@@ -211,6 +275,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/navigation.js"></script>
 
 	</body>
 </html>
