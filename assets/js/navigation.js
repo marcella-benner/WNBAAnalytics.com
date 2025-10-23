@@ -99,7 +99,7 @@ function loadSidebar() {
         <!-- Section -->
         <section>
             <header class="major">
-                <h2>About WNBA Analytics</h2>
+                <h2>About WNBAAnalytics.com</h2>
             </header>
             <p>Dedicated to advancing the understanding of WNBA player performance through innovative statistical analysis. <a href="${basePath}about.html">Learn more</a></p>
             <ul class="contact">
