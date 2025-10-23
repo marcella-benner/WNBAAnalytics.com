@@ -13,18 +13,32 @@
 		<link rel="stylesheet" href="../../assets/css/main.css" />
 		<link rel="icon" type="image/jpeg" href="/images/WA-WhiteBG.jpeg">
 		<style>
-			/* Resize images to be about 50% smaller */
+			/* Make images larger and more responsive */
 			.image.main img,
 			.image.fit img {
-				width: 50% !important;
+				width: 100% !important;
 				height: auto;
 				margin: 0 auto;
 				display: block;
+				max-height: 600px;
+				object-fit: contain;
 			}
 			/* Center the images */
 			.image.main,
 			.image.fit {
 				text-align: center;
+				width: 100%;
+			}
+			/* Override for side-by-side layouts */
+			.image-fit-container {
+				width: 100%;
+			}
+			.image-fit-container .image.fit {
+				width: 100%;
+			}
+			.image-fit-container .image.fit img {
+				width: 100% !important;
+				max-height: 500px;
 			}
 		</style>
 	</head>
@@ -70,7 +84,11 @@
 										<li>Below is an example of how I calculated change in WS for Kelsey Plum. Notice how her 22 and 26 years are omitted from the analysis due to her not playing in the preceding year.</li>
 									</ul>
 
-									<span class="image fit"><img src="images/ws-change-kelsey-plum.png" alt="Kelsey Plum Win Shares Change Example" /></span>
+									<div style="display: flex; justify-content: center; margin: 2em 0;">
+										<div style="max-width: 80%; width: 100%;" class="image-fit-container">
+											<span class="image fit"><img src="images/ws-change-kelsey-plum.png" alt="Kelsey Plum Win Shares Change Example" /></span>
+										</div>
+									</div>
 
 									<p>After calculating delta WS (as shown above) for each player, I then averaged all the WS changes for each age bin (21-22, 22-23, 23-24, etc.). I summed the average changes into cumulative change and adjusted the peak to 0 to best visualize the aging curve.</p>
 
@@ -78,8 +96,14 @@
 
 									<p>Below is a table and graph of the cumulative difference in WS for each age:</p>
 
-									<span class="image fit"><img src="images/ws-cumdiff-by-age-table.png" alt="Cumulative WS Difference by Age Table" /></span>
-									<span class="image fit"><img src="images/ws-cumdiff-by-age-graph.png" alt="Cumulative WS Difference by Age Graph" /></span>
+									<div style="display: flex; gap: 1.5em; margin: 2em 0; flex-wrap: wrap;">
+										<div style="flex: 1; min-width: 300px;" class="image-fit-container">
+											<span class="image fit"><img src="images/ws-cumdiff-by-age-table.png" alt="Cumulative WS Difference by Age Table" /></span>
+										</div>
+										<div style="flex: 1; min-width: 300px;" class="image-fit-container">
+											<span class="image fit"><img src="images/ws-cumdiff-by-age-graph.png" alt="Cumulative WS Difference by Age Graph" /></span>
+										</div>
+									</div>
 
 									<p>And below is how WS/100 possessions change with age:</p>
 
