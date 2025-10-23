@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>How Do WNBA Players Age? (Part I) - WNBAAnalytics.com</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta property="og:image" content="/articles/how-do-wnba-players-age/images/ws-cumdiff-by-age-graph.png" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="icon" type="image/jpeg" href="/images/WA-WhiteBG.jpeg">
+		<style>
+			/* Resize images to be about 50% smaller */
+			.image.main img,
+			.image.fit img {
+				width: 50% !important;
+				height: auto;
+				margin: 0 auto;
+				display: block;
+			}
+			/* Center the images */
+			.image.main,
+			.image.fit {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<!-- Header content will be loaded by navigation.js -->
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>How Do WNBA Players Age? (Part I)</h1>
+										<p><em>An analysis of player aging curves and productivity changes throughout WNBA careers</em></p>
+									</header>
+
+									<hr class="major" />
+
+									<p>Knowing how WNBA players age is crucial to better understanding their development. If a player is underperforming, should coaches and management practice patience since that player may have years of improvement ahead of them? If so, approximately how much improvement should they expect? Or has the developmental window closed and regression likely imminent?</p>
+
+									<p>Furthermore, if a player's contract terminates should she be re-signed? If so, for how long? Or would it make sense to sign or draft a replacement who is younger and has a learning curve but also their peak years ahead of them? In these next couple of articles I'll explain how I examined aging of WNBA players, what my analysis shows, and how different players and play styles may age differently.</p>
+
+									<h2>Methodology</h2>
+
+									<p>Since win shares (WS) seem to correlate best with team wins (see previous <a href="../evaluating-player-productivity/evaluating-player-productivity.html">Win Contribution</a> post), I tracked how WS changes for each player from one age to the next. Below are further notes about how I constructed these age curves:</p>
+
+									<ul>
+										<li>I followed a similar methodology to the one delineated on <a href="https://hockey-graphs.com/2017/03/23/a-new-look-at-aging-curves-for-nhl-skaters-part-1/">hockey-graphs.com</a>.</li>
+										<li>I used WNBA player WS data from 1997-2025 from basketballreference.com.</li>
+										<li>I scaled a player's WS each season to a 40-game season so we could compare year-to-year player productivity despite varying season lengths. For instance, when there were only 22 games played in 2020, I multiplied a player's WS by 40/22 to account for the shortened year. Since 2025 had 44 games, I multiplied each player's WS by 40/44.</li>
+										<li>A player's age for their season was determined by how old they were on July 1st. For instance, Nneka Ogwumike turned 35 on July 2nd, 2025, so she is marked as a 34-year-old for the 2025 WNBA season.</li>
+										<li>Only players with back-to-back season were included in the delta WS analysis. Therefore, if a player played in 2022, 2024, and 2025 only the 2024-2025 two-year stretch was included in the delta WS method and the change from 2022-2024 was omitted.</li>
+										<li>To control for playing time and pace, I also examined WS per 100 possessions. For this analysis, players who had less than 200 minutes played were removed.</li>
+										<li>Below is an example of how I calculated change in WS for Kelsey Plum. Notice how her 22 and 26 years are omitted from the analysis due to her not playing in the preceding year.</li>
+									</ul>
+
+									<span class="image fit"><img src="images/ws-change-kelsey-plum.png" alt="Kelsey Plum Win Shares Change Example" /></span>
+
+									<p>After calculating delta WS (as shown above) for each player, I then averaged all the WS changes for each age bin (21-22, 22-23, 23-24, etc.). I summed the average changes into cumulative change and adjusted the peak to 0 to best visualize the aging curve.</p>
+
+									<h2>Results</h2>
+
+									<p>Below is a table and graph of the cumulative difference in WS for each age:</p>
+
+									<span class="image fit"><img src="images/ws-cumdiff-by-age-table.png" alt="Cumulative WS Difference by Age Table" /></span>
+									<span class="image fit"><img src="images/ws-cumdiff-by-age-graph.png" alt="Cumulative WS Difference by Age Graph" /></span>
+
+									<p>And below is how WS/100 possessions change with age:</p>
+
+									<span class="image fit"><img src="images/ws-cumdiff-per-100-possessions.png" alt="WS per 100 Possessions by Age" /></span>
+
+									<p>If we overlay these plots and change the axis to percentiles of each of their maximums, we see that they mostly overlap suggesting that normalizing for possessions does not significantly impact our conclusions about WNBA aging.</p>
+
+									<span class="image fit"><img src="images/ws-cumdiff-and-cumdiff-per-possession.png" alt="WS Comparison: Raw vs Per Possession" /></span>
+
+									<p>However, it does look like the WS curve declines slightly less in ages 26-28 than the WS/100 curve. This suggests that 26-28 year-old players may start declining quicker on a per possession basis than raw WS suggests, but maybe increased playing time from their coach increases their gross productivity and makes their decline appear slower.</p>
+
+									<p>One final note about methodology is that we did not factor in survivorship bias which would be important to consider in future analyses. I would hypothesize that factoring in survivorship bias would flatten this aging curve slightly, as the survivors may have been lucky in their contract year and thus gotten an extra contract out of it. If so, they most likely regressed in that extra year and thus showed poor production which would steepen the aging curve. Meanwhile, the non-survivors who had an unlucky year and could not secure another contract (and therefore are not included in this analysis) may have positively regressed and showed better production in their non-existent year, ergo flattening the aging curve. This hypothesis needs to be tested.</p>
+
+									<h2>Conclusions</h2>
+
+									<p>As you can see from the graphs, WNBA players on average are most productive from the ages of 23-27 and start showing consistent decline in both raw and per possession productivity starting at the age of 28. From when a WNBA player gets drafted at 22 to when they tend to hit their most productive year at 25, management can expect that player to improve their WS total by 0.5 on average over a 40-game season or 0.55 wins in a 44-game season. Conversely, from their peak at age 25 to 28, a player will on average lose a half WS over a 40-game season and then another 0.8 WS over the next three year stretch from 28 to 31 years of age. From there it gets even steeper with a player on average losing over a full WS from 31 to 34.</p>
+
+									<p>These may seem like minor changes but in 5 of the past 6 years in the WNBA, a team missed the playoffs by one game. Further, when one considers a team's rotation is 8-10 players, these aging effects can multiply to significantly impact a team's place in the standings. Thus, understanding when and to what extent a WNBA player ages can better inform a front office and coaching staff how best to plan and manage their roster and distribute minutes to yield the most wins for their team.</p>
+
+									<p>Remember these are simply averages and not consistent rules for every player. Each player has distinct habits, biology, training, coaching, and play styles which will affect their aging. Additionally, there is randomness included in all of this. In part II and III, we'll study how distinct players may age differently.</p>
+
+									<hr class="major" />
+
+									<ul class="actions">
+										<li><a href="../articles.html" class="button large">← Back to Articles</a></li>
+									</ul>
+
+								</section>
+
+						</div>
+					</div>
+
+					<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<!-- Sidebar content will be loaded by navigation.js -->
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+			<script src="../../assets/js/navigation.js"></script>
+
+	</body>
+</html>

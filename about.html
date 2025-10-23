@@ -10,7 +10,53 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" type="image/jpeg" href="/images/WA_WhiteBG.jpeg">
+		<link rel="icon" type="image/jpeg" href="/images/WA-WhiteBG.jpeg">
+		<style>
+			/* Custom styles for about page */
+			.about-image {
+				max-width: 200px;
+				width: 100%;
+				height: auto;
+				border-radius: 8px;
+			}
+			.about-content {
+				margin-top: 0;
+				padding-left: 1em;
+			}
+			.about-content h2 {
+				margin-top: 0;
+				margin-bottom: 0.5em;
+			}
+			.about-content p {
+				margin-bottom: 1em;
+			}
+			/* Force the layout to stay side-by-side */
+			.about-row {
+				display: flex;
+				align-items: flex-start;
+				gap: 1em;
+			}
+			.about-image-container {
+				flex: 0 0 auto;
+				max-width: 200px;
+			}
+			.about-text-container {
+				flex: 1;
+			}
+			/* Responsive behavior */
+			@media screen and (max-width: 736px) {
+				.about-row {
+					flex-direction: column;
+				}
+				.about-image-container {
+					max-width: 150px;
+					margin: 0 auto;
+				}
+				.about-text-container {
+					text-align: center;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -23,11 +69,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>WNBAAnalytics.com</strong></a>
-									<ul class="icons">
-										<li><a href="https://x.com/wnbaanalytics" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="http://instagram.com/wnbaanalytics" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									</ul>
+									<!-- Header content will be loaded by navigation.js -->
 								</header>
 
 							<!-- Content -->
@@ -37,11 +79,11 @@
 									</header>
 
 									<!-- Author Introduction -->
-										<div class="row">
-											<div class="col-4 col-12-medium">
-												<span class="image fit"><img src="images/lars_benner_headshot.jpg" alt="Lars Benner" /></span>
+										<div class="about-row">
+											<div class="about-image-container">
+												<span class="image fit"><img src="images/lars-benner-headshot.jpg" alt="Lars Benner" class="about-image" /></span>
 											</div>
-											<div class="col-8 col-12-medium">
+											<div class="about-text-container about-content">
 												<h2>Lars Benner</h2>
 												<p><strong>PhD Graduate, Johns Hopkins University</strong></p>
 												<p>Welcome to WNBAAnalytics.com! I'm Lars Benner, a recent PhD graduate from Johns Hopkins University with a passion for sports analytics and statistical modeling. My research focuses on developing advanced metrics to better understand player performance and team dynamics in women's basketball.</p>
@@ -53,12 +95,15 @@
 
 									<!-- Background -->
 										<h2>Background & Research</h2>
+										<p>Coming soon...</p>
 										<div class="row">
 											<div class="col-6 col-12-small">
 												<h3>Academic Journey</h3>
+												<p>Coming soon...</p>
 											</div>
 											<div class="col-6 col-12-small">
 												<h3>Research Focus</h3>
+												<p>Coming soon...</p>
 											</div>
 										</div>
 
@@ -118,12 +163,12 @@
 									</header>
 									<div class="mini-posts">
 										<article>
-											<a href="articles/evaluating_player_productivity/evaluating_player_productivity.html" class="image"><img src="articles/evaluating_player_productivity/images/win_contributions_wc.png" alt="2024 Win Contribution Analysis" /></a>
+											<a href="articles/evaluating-player-productivity/evaluating-player-productivity.html" class="image"><img src="articles/evaluating-player-productivity/images/win-contributions-wc.png" alt="2024 Win Contribution Analysis" /></a>
 											<p>Win Contribution analysis showing team performance predictions with 95.6% accuracy.</p>
 										</article>
 									</div>
 									<ul class="actions">
-										<li><a href="articles/evaluating_player_productivity/evaluating_player_productivity.html" class="button">More</a></li>
+										<li><a href="articles/evaluating-player-productivity/evaluating-player-productivity.html" class="button">More</a></li>
 									</ul>
 								</section>
 
@@ -133,7 +178,7 @@
 										<h2>Get in touch</h2>
 									</header>
 									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">wnbaanalytics.com@gmail.com</a></li>
+										<li class="icon solid fa-envelope"><a href="#">wnbaanalytics@gmail.com</a></li>
 										<li class="icon brands fa-instagram"><a href="http://instagram.com/wnbaanalytics">@wnbaanalytics</a></li>
 										<li class="icon brands fa-twitter"><a href="https://x.com/wnbaanalytics">@wnbaanalytics</a></li>
 									</ul>
@@ -155,6 +200,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/navigation.js"></script>
 
 	</body>
 </html>

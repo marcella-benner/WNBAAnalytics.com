@@ -10,7 +10,15 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" type="image/jpeg" href="/images/WA_WhiteBG.jpeg">
+		<link rel="icon" type="image/jpeg" href="/images/WA-WhiteBG.jpeg">
+		<style>
+			/* Make article images the same height */
+			.posts article .image img {
+				height: 250px;
+				width: 100%;
+				object-fit: contain;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -23,14 +31,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>WNBAAnalytics.com</strong></a>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
-									</ul>
+									<!-- Header content will be loaded by navigation.js -->
 								</header>
 
 							<!-- Content -->
@@ -39,22 +40,29 @@
 										<h1>Articles</h1>
 									</header>
 
-									<!-- Featured Article -->
-									<article class="post featured">
-										<header class="major">
-											<span class="date">September 2025</span>
-											<h2><a href="#">Evaluating Player Productivity in the WNBA</a></h2>
-											<p>An in-depth analysis of Win Contribution (WC) metrics and how they measure player impact on team success in the WNBA</p>
-										</header>
-										<a href="articles/evaluating_player_productivity/evaluating_player_productivity.html" class="image main"><img src="articles/evaluating_player_productivity/images/win_contributions_wc.png" alt="Win Contribution Analysis 2024" /></a>
-										<p>In the 2024 WNBA season, there were a total of 240 wins distributed across 12 teams. I sought to divide the 240 wins among every WNBA player to understand the contribution each player had on their team's record. I created a variable called 'Win Contribution' (WC) which is based on the metric created in <em>Wages of Wins</em> by David Berri, Martin Schmidt, and Stacey Brook.</p>
-										<p>This comprehensive analysis includes methodology, accuracy testing, and complete WC data for every player in WNBA history. The study reveals fascinating insights about player efficiency across different eras and positions, with detailed comparisons to other advanced metrics like RAPTOR, PER, and Win Shares.</p>
-										<ul class="actions special">
-											<li><a href="articles/evaluating_player_productivity/evaluating_player_productivity.html" class="button large">Read Full Article</a></li>
-										</ul>
-									</article>
-
-								</section>
+									<!-- Posts -->
+									<section>
+										<div class="posts">
+											<article>
+												<a href="articles/how-do-wnba-players-age/how-do-wnba-players-age-part-i.html" class="image"><img src="articles/how-do-wnba-players-age/images/ws-cumdiff-by-age-graph.png" alt="WNBA Player Aging Analysis" /></a>
+												<h3><a href="articles/how-do-wnba-players-age/how-do-wnba-players-age-part-i.html">How Do WNBA Players Age? (Part I)</a></h3>
+												<p><span class="date">October 2025</span></p>
+												<p>An analysis of player aging curves and productivity changes throughout WNBA careers. Understanding when and how WNBA players peak and decline is crucial for roster management and player development decisions.</p>
+												<ul class="actions">
+													<li><a href="articles/how-do-wnba-players-age/how-do-wnba-players-age-part-i.html" class="button">Read More</a></li>
+												</ul>
+											</article>
+											<article>
+												<a href="articles/evaluating-player-productivity/evaluating-player-productivity.html" class="image"><img src="articles/evaluating-player-productivity/images/win-contributions-wc.png" alt="Win Contribution Analysis 2024" /></a>
+												<h3><a href="articles/evaluating-player-productivity/evaluating-player-productivity.html">Evaluating Player Productivity in the WNBA</a></h3>
+												<p><span class="date">September 2025</span></p>
+												<p>An in-depth analysis of Win Contribution (WC) metrics and how they measure player impact on team success in the WNBA. This comprehensive study includes methodology, accuracy testing, and complete WC data for every player in WNBA history.</p>
+												<ul class="actions">
+													<li><a href="articles/evaluating-player-productivity/evaluating-player-productivity.html" class="button">Read More</a></li>
+												</ul>
+											</article>
+										</div>
+									</section>
 
 						</div>
 					</div>
@@ -89,7 +97,7 @@
 								</header>
 								<div class="mini-posts">
 									<article>
-										<a href="articles/evaluating_player_productivity/evaluating_player_productivity.html" class="image"><img src="articles/evaluating_player_productivity/images/win_contributions_wc.png" alt="2024 Win Contribution Analysis" /></a>
+										<a href="articles/evaluating-player-productivity/evaluating-player-productivity.html" class="image"><img src="articles/evaluating-player-productivity/images/win-contributions-wc.png" alt="2024 Win Contribution Analysis" /></a>
 										<p>Evaluating Player Productivity in the WNBA</p>
 									</article>
 								</div>
@@ -103,11 +111,11 @@
 								<header class="major">
 									<h2>About WNBA Analytics</h2>
 								</header>
-								<p>Dedicated to advancing the understanding of WNBA player performance through innovative statistical analysis. Our Win Contribution methodology provides a comprehensive framework for evaluating player impact on team success.</p>
+								<p>Dedicated to advancing the understanding of WNBA player performance through innovative statistical analysis.</p>
 								<ul class="contact">
-									<li class="icon solid fa-envelope"><a href="#">analytics@wnbaanalytics.com</a></li>
-									<li class="icon brands fa-twitter"><a href="#">@WNBAAnalytics</a></li>
-									<li class="icon solid fa-chart-line">Advanced Basketball Analytics</li>
+									<li class="icon solid fa-envelope"><a href="#">wnbaanalytics@gmail.com</a></li>
+									<li class="icon brands fa-instagram"><a href="http://instagram.com/wnbaanalytics">@wnbaanalytics</a></li>
+									<li class="icon brands fa-twitter"><a href="https://x.com/wnbaanalytics">@wnbaanalytics</a></li>
 								</ul>
 							</section>
 
@@ -127,6 +135,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/navigation.js"></script>
 
 	</body>
 </html>
