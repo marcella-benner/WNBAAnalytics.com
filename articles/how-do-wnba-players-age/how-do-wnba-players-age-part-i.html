@@ -40,6 +40,18 @@
 				width: 100% !important;
 				max-height: 500px;
 			}
+			/* Mobile-specific styling for better readability */
+			@media screen and (max-width: 736px) {
+				.image-fit-container {
+					max-width: 100% !important;
+					width: 100% !important;
+				}
+				.image-fit-container .image.fit img {
+					width: 100% !important;
+					max-height: none;
+					height: auto;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
