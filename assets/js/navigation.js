@@ -87,8 +87,8 @@ function loadSidebar() {
             </header>
             <div class="mini-posts">
                 <article>
-                    <a href="${basePath}articles/how-do-wnba-players-age/how-do-wnba-players-age-part-i.html" class="image"><img src="${basePath}articles/how-do-wnba-players-age/images/ws-cumdiff-by-age-graph.png" alt="WNBA Player Aging Analysis" /></a>
-                    <h3><a href="${basePath}articles/how-do-wnba-players-age/how-do-wnba-players-age-part-i.html">How Do WNBA Players Age? (Part I)</a></h3>
+                    <a href="${basePath}articles/how-do-wnba-players-age-part-iii/how-do-wnba-players-age-part-iii.html" class="image"><img src="${basePath}articles/how-do-wnba-players-age-part-iii/images/pts_v_asts_v_rebs.png" alt="WNBA Player Aging Analysis Part III" /></a>
+                    <h3><a href="${basePath}articles/how-do-wnba-players-age-part-iii/how-do-wnba-players-age-part-iii.html">How Do WNBA Players Age? (Part III)</a></h3>
                 </article>
             </div>
             <ul class="actions">
