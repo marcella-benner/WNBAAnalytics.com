@@ -4,11 +4,35 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="en">
 	<head>
-		<title>WNBAAnalytics.com</title>
+		<title>WNBAAnalytics.com - WNBA Statistical Analysis & Player Performance Metrics</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Your home for understanding the numbers that drive WNBA performance. Advanced statistical analysis, player aging curves, win contribution metrics, and comprehensive WNBA analytics research." />
+		<meta name="keywords" content="WNBA analytics, WNBA statistics, player performance, win contribution, player aging, basketball analytics, WNBA metrics" />
+		<meta name="author" content="Lars Benner" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://wnbaanalytics.com/" />
+		<meta property="og:title" content="WNBAAnalytics.com - WNBA Statistical Analysis & Player Performance Metrics" />
+		<meta property="og:description" content="Your home for understanding the numbers that drive WNBA performance. Advanced statistical analysis, player aging curves, win contribution metrics, and comprehensive WNBA analytics research." />
+		<meta property="og:image" content="https://wnbaanalytics.com/images/WA-WhiteBG.jpeg" />
+		<meta property="og:site_name" content="WNBAAnalytics.com" />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content="https://wnbaanalytics.com/" />
+		<meta name="twitter:title" content="WNBAAnalytics.com - WNBA Statistical Analysis & Player Performance Metrics" />
+		<meta name="twitter:description" content="Your home for understanding the numbers that drive WNBA performance. Advanced statistical analysis, player aging curves, win contribution metrics, and comprehensive WNBA analytics research." />
+		<meta name="twitter:image" content="https://wnbaanalytics.com/images/WA-WhiteBG.jpeg" />
+		<meta name="twitter:creator" content="@wnbaanalytics" />
+		<meta name="twitter:site" content="@wnbaanalytics" />
+		
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://wnbaanalytics.com/" />
+		
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="icon" type="image/jpeg" href="/images/WA-WhiteBG.jpeg">
 		<style>
@@ -39,61 +63,83 @@
 			.features article .content div[style*="margin: 2em 0"] {
 				margin-bottom: 0.5em !important;
 			}
-						/* Responsive banner image */
-			#banner .image.object {
-				width: 100%;
-				height: auto;
-				overflow: visible;
-				display: flex;
-				justify-content: left;
-				align-items: left;
-				box-sizing: border-box;
-				padding: 0;
-			}
-			#banner .image.object img {
-				width: auto;
-				height: auto;
-				object-fit: contain;
-				object-position: center;
-				max-width: 100%;
-				max-height: 500px;
-				box-sizing: border-box;
-			}
-			/* Ensure no horizontal overflow and reduce spacing */
+						/* Responsive banner image - ensure image always fits */
+			/* Banner layout - no wrap on desktop, image stays on right */
 			#banner {
 				overflow-x: hidden;
+				overflow-y: visible;
 				width: 100%;
 				box-sizing: border-box;
 				padding: 1em 0;
+				flex-wrap: nowrap;
 			}
-			/* Reduce gap between content and image */
+			/* Content area - can shrink to make room for image */
 			#banner .content {
 				padding-right: 1em;
+				flex-shrink: 1 !important;
+				flex-grow: 1;
+				min-width: 200px;
+				width: 50%;
+				box-sizing: border-box;
 			}
-			/* Mobile-specific adjustments */
+			/* Image container - can shrink but tries to maintain size */
+			#banner .image.object {
+				flex-shrink: 1 !important;
+				flex-grow: 0 !important;
+				width: 50% !important;
+				max-width: 50%;
+				min-width: 150px;
+				height: auto;
+				overflow: visible;
+				display: block;
+				box-sizing: border-box;
+				padding: 0;
+				margin: 0 0 2em 4em;
+			}
+			/* Ensure image scales to fit container */
+			#banner .image.object img {
+				width: 100% !important;
+				height: auto !important;
+				object-fit: contain !important;
+				object-position: center;
+				max-width: 100%;
+				max-height: none;
+				box-sizing: border-box;
+				display: block;
+			}
+			/* Mobile-specific adjustments - allow wrapping */
 			@media screen and (max-width: 980px) {
+				#banner {
+					flex-direction: column-reverse;
+					flex-wrap: wrap;
+				}
 				#banner .image.object {
-					width: 100%;
-					max-height: 400px;
-					overflow: visible;
+					width: 100% !important;
+					max-width: 100% !important;
+					min-width: 0;
+					height: auto;
+					margin: 0 0 2em 0 !important;
+					max-height: 50vh;
 				}
 				#banner .image.object img {
-					width: auto;
-					height: auto;
-					max-height: 400px;
-					object-fit: contain;
+					width: 100% !important;
+					height: auto !important;
+					object-fit: contain !important;
 					max-width: 100%;
+					max-height: 100%;
+				}
+				#banner .content {
+					width: 100% !important;
+					min-width: 0;
+					flex-shrink: 0;
 				}
 			}
 			@media screen and (max-width: 736px) {
 				#banner .image.object {
-					max-height: 350px;
-					overflow: visible;
+					max-height: 35vh;
 				}
 				#banner .image.object img {
-					max-height: 350px;
-					object-fit: contain;
-					max-width: 100%;
+					max-height: 100%;
 				}
 			}
 		</style>
@@ -125,7 +171,7 @@
 										</ul>
 									</div>
 									<span class="image object">
-										<img src="images/WA-WhiteBG.jpeg" alt="" />
+										<img src="images/WA-WhiteBG.jpeg" alt="WNBA Analytics Logo" />
 									</span>
 								</section>
 
@@ -137,7 +183,73 @@
 									<div class="features">
 										<article>
 											<div class="content">
-												<h3><a href="articles/how-do-wnba-players-age/how-do-wnba-players-age-part-i.html">How Do WNBA Players Age? (Part I)</a></h3>
+												<h3><a href="articles/how-do-wnba-players-age-part-iii/how-do-wnba-players-age-part-iii.html">How Do WNBA Players Age? (Part III)</a></h3>
+												<p style="color: #666; font-size: 0.9em; margin: -0.5em 0 1em 0;">November 2025</p>
+												<p>An analysis of how different play styles distinctly age in the WNBA. Examining how scoring, rebounding, assists, and defensive statistics change with age reveals which player types are best suited for long-term contracts.</p>
+												
+												<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0;">
+													<div>
+														<h4>Key Findings:</h4>
+														<ul>
+															<li>Assists age better than scoring, which ages better than rebounding</li>
+															<li>Three-point scoring peaks at 32, while two-point scoring peaks at 24</li>
+															<li>Steal rate ages better than blocks</li>
+															<li>Turnover rate perpetually decreases throughout a player's career</li>
+														</ul>
+													</div>
+													<div>
+														<h4>Research Highlights:</h4>
+														<ul>
+															<li>Play style-based aging curve analysis</li>
+															<li>Scoring method comparison (3PT vs 2PT vs FT)</li>
+															<li>Offensive vs defensive rebounding aging</li>
+															<li>Free agency and contract implications</li>
+														</ul>
+													</div>
+												</div>
+												
+												<ul class="actions">
+													<li><a href="articles/how-do-wnba-players-age-part-iii/how-do-wnba-players-age-part-iii.html" class="button large">Read Full Analysis</a></li>
+												</ul>
+											</div>
+										</article>
+										
+										<article>
+											<div class="content">
+												<h3><a href="articles/how-do-wnba-players-age-part-ii/how-do-wnba-players-age-part-ii.html">How Do WNBA Players Age? (Part II)</a></h3>
+												<p style="color: #666; font-size: 0.9em; margin: -0.5em 0 1em 0;">November 2025</p>
+												<p>An analysis of how different positions and generations age differently in the WNBA. Examining guards vs bigs and comparing aging curves between the 1997-2011 and 2012-2025 eras reveals key insights for roster management.</p>
+												
+												<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0;">
+													<div>
+														<h4>Key Findings:</h4>
+														<ul>
+															<li>Guards reach peak productivity at age 24, bigs at 25</li>
+															<li>Guards age slower than bigs from ages 26-29</li>
+															<li>Modern players (2012-2025) peak earlier but decline faster</li>
+															<li>Older generation players (1997-2011) age about a year slower</li>
+														</ul>
+													</div>
+													<div>
+														<h4>Research Highlights:</h4>
+														<ul>
+															<li>Position-based aging curve analysis</li>
+															<li>Generation comparison (1997-2011 vs 2012-2025)</li>
+															<li>WS per 100 possessions normalized analysis</li>
+															<li>Roster management and contract implications</li>
+														</ul>
+													</div>
+												</div>
+												
+												<ul class="actions">
+													<li><a href="articles/how-do-wnba-players-age-part-ii/how-do-wnba-players-age-part-ii.html" class="button large">Read Full Analysis</a></li>
+												</ul>
+											</div>
+										</article>
+										
+										<article>
+											<div class="content">
+												<h3><a href="articles/how-do-wnba-players-age-part-i/how-do-wnba-players-age-part-i.html">How Do WNBA Players Age? (Part I)</a></h3>
 												<p style="color: #666; font-size: 0.9em; margin: -0.5em 0 1em 0;">October 2025</p>
 												<p>An analysis of player aging curves and productivity changes throughout WNBA careers. Understanding when and how WNBA players peak and decline is crucial for roster management and player development decisions.</p>
 												
@@ -163,7 +275,7 @@
 												</div>
 												
 												<ul class="actions">
-													<li><a href="articles/how-do-wnba-players-age/how-do-wnba-players-age-part-i.html" class="button large">Read Full Analysis</a></li>
+													<li><a href="articles/how-do-wnba-players-age-part-i/how-do-wnba-players-age-part-i.html" class="button large">Read Full Analysis</a></li>
 												</ul>
 											</div>
 										</article>

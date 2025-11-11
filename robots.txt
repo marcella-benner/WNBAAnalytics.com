@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (create sitemap.xml for better SEO)
+Sitemap: https://wnbaanalytics.com/sitemap.xml
+
